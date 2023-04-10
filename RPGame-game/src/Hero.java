@@ -1,5 +1,4 @@
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 public class Hero extends Creature implements Fighting {
@@ -54,7 +53,7 @@ public class Hero extends Creature implements Fighting {
     static class Backpack {
         Map<String, Integer> items = new HashMap<>();
 
-        public void addItem(Bag item) {
+        public void addItem(Invent item) {
             if (items.containsKey(item.getDescription())) {
                 items.put(item.getDescription(),
                         items.get(item.getDescription()) + 1);
@@ -62,7 +61,7 @@ public class Hero extends Creature implements Fighting {
                 items.put(item.getDescription(), item.getQuantity());
             }
         }
-        public void useItem(Bag item) {
+        public void useItem(Invent item) {
 
             if(items.containsKey(item.getDescription()) && item.getQuantity()==1){
             items.remove(item.getDescription());

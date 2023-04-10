@@ -1,11 +1,11 @@
 import java.util.Objects;
 
-public abstract class Bag {
+public abstract class Invent {
     private final String description;
     private int quantity;
     private final int increment;
 
-    public Bag(String description, int increment) {
+    public Invent(String description, int increment) {
         this.description = description;
         this.quantity = 0;
         this.increment = increment;
@@ -39,8 +39,8 @@ public abstract class Bag {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Bag bag = (Bag) o;
-        return Objects.equals(description, bag.description);
+        Invent invent = (Invent) o;
+        return Objects.equals(description, invent.description);
     }
 
     @Override

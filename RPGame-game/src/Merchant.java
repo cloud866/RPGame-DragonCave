@@ -7,7 +7,7 @@ public class Merchant implements Runnable {
         this.healthPotion = hero.healthPotion;
     }
 
-    static class HealthPotion extends Bag {
+    static class HealthPotion extends Invent {
         public HealthPotion() {
             super("Health potion", 50);
         }
@@ -44,7 +44,7 @@ public class Merchant implements Runnable {
                     Gold balance: %d .
                     What would you like to do?
                     1.Buy health potion (20 gold)
-                    2.Check bag
+                    2.Check invent
                     3.Return to town
                     """, hero.getGold());
 
