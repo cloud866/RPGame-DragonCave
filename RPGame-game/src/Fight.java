@@ -40,6 +40,7 @@ public class Fight implements Runnable {
                     case 2 -> {hero.healthPotion.use(hero); hero.backpack.useItem(hero.healthPotion); }
                     default -> System.out.println("Select option: 1, 2");
                 }
+                //печать результата после удара
                 ((Fighting) enemy).attack(hero);
                 if (enemy.getHealth() > 0 && hero.getHealth() > 0) {
                     System.out.println("-<<<Result>>>-");
@@ -49,12 +50,6 @@ public class Fight implements Runnable {
                             hero.getName(), hero.getHealth(), hero.getStrength(), hero.getAgility());
                     System.out.println("-<>-");
                     count++;
-                    if (hero.isBuff() && hero.getBuffDuration() > 1) {
-                        hero.setBuffDuration(hero.getBuffDuration() - 1);
-                    } else if (hero.isBuff() && hero.getBuffDuration() == 1) {
-                        hero.setBuff(false);
-                        hero.setBuffDuration(hero.getBuffDuration() - 1);
-                    }
                 } else if (enemy.getHealth() <= 0 && hero.getHealth() > 0) {
                     System.out.println("-<<<Result>>>-");
                     System.out.printf("%s win.\n", hero.getName());
@@ -70,6 +65,7 @@ public class Fight implements Runnable {
                     isAlive = false;
                 }
             }
+            //проверка на повышение уровня
             if (hero.getHealth() > 0) {
                 if (hero.getExperience() >= hero.getLevelCap()) {
                     int increment = 3;
@@ -83,6 +79,7 @@ public class Fight implements Runnable {
                             hero.getName(), hero.getLevel(), increment, hero.getHealth());
                     System.out.println("****************************");
                 }
+                //выбор действия
                 System.out.print("Where would you go next?\n1. " +
                         "Return to town\n2. " +
                         "Resume fighting\n");

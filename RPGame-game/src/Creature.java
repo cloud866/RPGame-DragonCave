@@ -5,9 +5,8 @@ public abstract class Creature implements Fighting {
     private int strength;
     private int agility;
     private int gold;
-    private boolean buff = false;
-    private int buffDuration = 0;
 
+//конструктор
     public Creature(String name, int experience, int gold) {
         this.name = name;
         this.health = 100;
@@ -17,6 +16,7 @@ public abstract class Creature implements Fighting {
         this.gold = gold;
     }
 
+//геттеры и сетторы
     public String getName() {
         return name;
     }
@@ -61,22 +61,7 @@ public abstract class Creature implements Fighting {
         this.gold = gold;
     }
 
-    public boolean isBuff() {
-        return buff;
-    }
-
-    public void setBuff(boolean buff) {
-        this.buff = buff;
-    }
-
-    public int getBuffDuration() {
-        return buffDuration;
-    }
-
-    public void setBuffDuration(int buffDuration) {
-        this.buffDuration = buffDuration;
-    }
-
+//рандом атака, крит удар и промах
     @Override
     public void attack(Creature enemy) {
         if (agility * 3 > (int) (Math.random() * 100)) {
